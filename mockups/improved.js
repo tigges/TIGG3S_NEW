@@ -99,7 +99,7 @@ function renderCard(card) {
 
 document.querySelector("#app").innerHTML = `
   <div class="mockup-banner">
-    <span>Improved hub mockup — not live. Copy, Mixcloud tease, one social row, tighter layout.</span>
+    <span>Improved hub mockup — not live. Copy, Mixcloud tease, socials in a black footer.</span>
     <span>
       <a href="/">Live hub</a>
       · <a href="/mockups/option-b.html">Option B</a>
@@ -115,7 +115,6 @@ document.querySelector("#app").innerHTML = `
       <nav class="jump" aria-label="On this page">
         <a href="#family">Family</a>
         <a href="#ventures">Ventures</a>
-        <a href="#follow">Follow</a>
       </nav>
     </div>
   </header>
@@ -147,9 +146,9 @@ document.querySelector("#app").innerHTML = `
     </div>
   </section>
 
-  <section class="socials-section" id="follow">
-    <div class="wrap">
-      <p class="section-label socials-label">Follow</p>
+  <footer class="footer" id="follow">
+    <div class="wrap footer-inner">
+      <p class="copyright">© 2025 by CT</p>
       <div class="socials">
         ${socials
           .map(
@@ -161,12 +160,6 @@ document.querySelector("#app").innerHTML = `
           )
           .join("")}
       </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="wrap footer-inner footer-simple">
-      <p class="copyright">© 2025 by CT</p>
     </div>
   </footer>
 `;
