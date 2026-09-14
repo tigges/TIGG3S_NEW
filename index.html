@@ -17,7 +17,7 @@
       (function () {
         var host = location.hostname;
         var path = location.pathname;
-        if (host.endsWith("github.io") && path.indexOf("/docs/") === -1) {
+        if (host.endsWith("github.io") && !/(?:^|\/)docs(?:\/|$)/.test(path)) {
           location.replace(path.replace(/\/?$/, "/") + "docs/");
         }
       })();
