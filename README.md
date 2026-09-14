@@ -1,6 +1,6 @@
 # TIGG3S
 
-Replica of [tigg3s.com](https://tigg3s.com/) — a family links hub.
+Tigges family links hub. V2 (Family / Ventures). Original replica is tagged `original-template`.
 
 ## Run locally
 
@@ -17,9 +17,9 @@ All copy, links, cards, and socials live in `src/content.js`.
 
 | What to change | Where |
 | --- | --- |
-| Tagline, logo | `site` in `src/content.js` |
-| DJURBANT hero + Mixcloud CTA | `hero` |
-| Music / Art / Architecture / CXP cards | `cards` |
+| Tagline, logo | `site` |
+| DJURBANT hero + YouTube CTA | `hero` |
+| Family / Ventures cards | `cardGroups` |
 | Mid-page brand icons | `socials` |
 | Footer copyright + outline icons | `footer` |
 | Layout, colors, type | `src/style.css` |
@@ -27,11 +27,15 @@ All copy, links, cards, and socials live in `src/content.js`.
 
 Accent color is `--accent: #ff7919` in `src/style.css`.
 
-## Build
+See `BOOKMARKS.md` to restore the original template.
+
+## Build / GitHub Pages
 
 ```bash
 npm run build
 npm run preview
 ```
 
-Static output is written to `dist/`.
+Static output is written to `docs/`. GitHub Pages cannot run Vite source, so the live site needs this production build.
+
+The root page redirects `*.github.io` to `./docs/`. For a URL without `/docs/` in the path, set **Settings → Pages** to deploy the `/docs` folder from `main`.
