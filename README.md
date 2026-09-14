@@ -18,7 +18,7 @@ All copy, links, cards, and socials live in `src/content.js`.
 | What to change | Where |
 | --- | --- |
 | Tagline, logo | `site` |
-| DJURBANT hero + YouTube CTA | `hero` |
+| DJURBANT hero + Mixcloud CTA | `hero` |
 | Family / Ventures cards | `cardGroups` |
 | Mid-page brand icons | `socials` |
 | Footer copyright + outline icons | `footer` |

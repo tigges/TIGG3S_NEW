@@ -19,10 +19,10 @@ export const hero = {
   poster: asset("assets/hero-poster.jpg"),
   prefix: "DJ",
   title: "URBANT",
-  href: "https://www.youtube.com/@DJ_UrbanT",
+  href: "https://www.mixcloud.com/urbant/",
   cta: {
-    label: "Watch on YouTube",
-    href: "https://www.youtube.com/@DJ_UrbanT",
+    label: "Join Live on Mixcloud",
+    href: "https://www.mixcloud.com/urbant/",
   },
 };
 
