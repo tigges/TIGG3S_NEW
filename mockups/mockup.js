@@ -28,11 +28,11 @@ const outlineIcons = {
 
 const cards = {
   music: { title: "Music", description: "Dj UrbanT Website", href: "https://djurbant.com/", image: "/assets/music.jpg" },
-  art: { title: "Art", description: "Leon Tigges art portfolio", href: "https://leontigges.com/", image: "/assets/art.jpg" },
+  art: { title: "Art Leon", description: "Leon Tigges art portfolio", href: "https://leontigges.com/", image: "/assets/art.jpg" },
   architecture: { title: "Architecture", description: "Tigges Architekt Studio Website", href: "https://tiggesarchitekt.ch/", image: "/assets/architecture.jpg" },
-  barbara: { title: "Barbara", description: "Paintings and works on paper", href: "https://barbaratigges.com/", image: "/mockups/assets/barbara.jpg" },
-  setradar: { title: "Set Radar", description: "Timed tracklists for festivals and clubs", href: "https://setradar.ai/", image: "/mockups/assets/setradar.jpg" },
-  gta: { title: "GTA VI.AI", description: "Follow the GTA$", href: "https://gtavi.ai/", image: "/mockups/assets/gta.jpg" },
+  barbara: { title: "Art Barbara", description: "Paintings and works on paper", href: "https://barbaratigges.com/", image: "/assets/barbara.jpg" },
+  setradar: { title: "Set Radar", description: "Timed tracklists for festivals and clubs", href: "https://setradar.ai/", image: "/assets/setradar.jpg" },
+  gta: { title: "GTA VI.AI", description: "Follow the GTA$", href: "https://gtavi.ai/", image: "/assets/gta.jpg" },
 };
 
 function escapeHtml(value) {
