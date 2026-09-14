@@ -38,7 +38,7 @@ const groups = [
       },
       {
         title: "Architecture",
-        description: "Studio in Switzerland",
+        description: "Studio in Spain",
         href: "https://tiggesarchitekt.ch/",
         image: "/assets/architecture.jpg",
       },
