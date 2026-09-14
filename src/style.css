@@ -11,8 +11,7 @@
   --white: #ffffff;
   --accent: #ff7919;
   --footer-bg: #2a2e33;
-  --max-width: 1440px;
-  --page-pad: 80px;
+  --page-pad: 40px;
   --card-radius: 16px;
   --font: "Montserrat", sans-serif;
 }
@@ -45,7 +44,6 @@ img {
 
 .wrap {
   width: 100%;
-  max-width: var(--max-width);
   margin: 0 auto;
   padding-left: var(--page-pad);
   padding-right: var(--page-pad);
@@ -116,7 +114,6 @@ img {
   font-weight: 400;
   line-height: 1.2;
   color: var(--white);
-  letter-spacing: -0.02em;
 }
 
 .hero-title a {
@@ -131,8 +128,8 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 240px;
-  padding: 10px 18px;
+  min-width: 220px;
+  padding: 10px 20px;
   font-family: var(--font);
   font-size: 18px;
   font-weight: 800;
@@ -218,8 +215,8 @@ img {
   z-index: 2;
   display: grid;
   place-items: center;
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   padding: 5px;
   border: 1px solid var(--white);
   border-radius: 100px;
@@ -228,8 +225,8 @@ img {
 }
 
 .card-arrow svg {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
 }
 
 .card:hover .card-arrow,
@@ -273,8 +270,8 @@ img {
 }
 
 .social-x {
-  background: #000;
-  outline: 1px solid #222;
+  background: #141414;
+  box-shadow: 0 0 0 1px #2a2a2a;
 }
 
 .social-mixcloud {
@@ -347,9 +344,9 @@ img {
   transform: scale(1.12);
 }
 
-@media (max-width: 1280px) {
+@media (min-width: 1600px) {
   :root {
-    --page-pad: 40px;
+    --page-pad: 80px;
   }
 }
 
