@@ -29,11 +29,13 @@ Accent color is `--accent: #ff7919` in `src/style.css`.
 
 See `BOOKMARKS.md` to restore the original template.
 
-## Build
+## Build / GitHub Pages
 
 ```bash
 npm run build
 npm run preview
 ```
 
-Static output is written to `dist/`.
+Static output is written to `docs/`. GitHub Pages cannot run Vite source, so the live site needs this production build.
+
+The root page redirects `*.github.io` to `./docs/`. For a URL without `/docs/` in the path, set **Settings → Pages** to deploy the `/docs` folder from `main`.

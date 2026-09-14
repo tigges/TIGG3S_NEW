@@ -2,18 +2,20 @@
  * Site content — edit this file to change copy, links, and cards.
  */
 
+const asset = (path) => `${import.meta.env.BASE_URL}${String(path).replace(/^\//, "")}`;
+
 export const site = {
   title: "Tigges",
   tagline: "Tigges family links & resources",
   logo: {
-    src: "/assets/logo.svg",
+    src: asset("assets/logo.svg"),
     alt: "TIGGES",
-    href: "/",
+    href: import.meta.env.BASE_URL,
   },
 };
 
 export const hero = {
-  video: "/assets/hero.mp4",
+  video: asset("assets/hero.mp4"),
   prefix: "DJ",
   title: "URBANT",
   href: "https://www.youtube.com/@DJ_UrbanT",
@@ -31,19 +33,19 @@ export const cardGroups = [
         title: "Art Leon",
         description: "Leon Tigges art portfolio",
         href: "https://leontigges.com/",
-        image: "/assets/art.jpg",
+        image: asset("assets/art.jpg"),
       },
       {
         title: "Art Barbara",
         description: "Paintings and works on paper",
         href: "https://barbaratigges.com/",
-        image: "/assets/barbara.jpg",
+        image: asset("assets/barbara.jpg"),
       },
       {
         title: "Architecture",
         description: "Tigges Architekt Studio Website",
         href: "https://tiggesarchitekt.ch/",
-        image: "/assets/architecture.jpg",
+        image: asset("assets/architecture.jpg"),
       },
     ],
   },
@@ -54,19 +56,19 @@ export const cardGroups = [
         title: "Music",
         description: "Dj UrbanT Website",
         href: "https://djurbant.com/",
-        image: "/assets/music.jpg",
+        image: asset("assets/music.jpg"),
       },
       {
         title: "Set Radar",
         description: "Timed tracklists for festivals and clubs",
         href: "https://setradar.ai/",
-        image: "/assets/setradar.jpg",
+        image: asset("assets/setradar.jpg"),
       },
       {
         title: "GTA VI.AI",
         description: "Follow the GTA$",
         href: "https://gtavi.ai/",
-        image: "/assets/gta.jpg",
+        image: asset("assets/gta.jpg"),
       },
     ],
   },
