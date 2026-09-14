@@ -6,11 +6,11 @@ const asset = (path) => `${import.meta.env.BASE_URL}${String(path).replace(/^\//
 
 export const site = {
   title: "Tigges",
-  tagline: "Tigges family links & resources",
+  tagline: "Family and ventures",
   logo: {
     src: asset("assets/logo.svg"),
     alt: "TIGGES",
-    href: import.meta.env.BASE_URL,
+    href: "#top",
   },
 };
 
@@ -19,7 +19,6 @@ export const hero = {
   poster: asset("assets/hero-poster.jpg"),
   prefix: "DJ",
   title: "URBANT",
-  href: "https://www.mixcloud.com/urbant/",
   cta: {
     label: "Join Live on Mixcloud",
     href: "https://www.mixcloud.com/urbant/",
@@ -28,11 +27,12 @@ export const hero = {
 
 export const cardGroups = [
   {
+    id: "family",
     label: "Family",
     cards: [
       {
         title: "Art Leon",
-        description: "Leon Tigges art portfolio",
+        description: "Paintings, drawings, and studio work",
         href: "https://leontigges.com/",
         image: asset("assets/art.jpg"),
       },
@@ -44,18 +44,19 @@ export const cardGroups = [
       },
       {
         title: "Architecture",
-        description: "Tigges Architekt Studio Website",
+        description: "Studio in Switzerland",
         href: "https://tiggesarchitekt.ch/",
         image: asset("assets/architecture.jpg"),
       },
     ],
   },
   {
+    id: "ventures",
     label: "Ventures",
     cards: [
       {
         title: "Music",
-        description: "Dj UrbanT Website",
+        description: "Mixes, dates, and the DJ home",
         href: "https://djurbant.com/",
         image: asset("assets/music.jpg"),
       },
@@ -69,7 +70,7 @@ export const cardGroups = [
         title: "GTA VI.AI",
         description: "Follow the GTA$",
         href: "https://gtavi.ai/",
-        image: asset("assets/gta.jpg"),
+        image: asset("assets/gta-card.jpg"),
       },
     ],
   },
@@ -77,19 +78,9 @@ export const cardGroups = [
 
 export const socials = [
   {
-    id: "linkedin",
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/tigges/",
-  },
-  {
-    id: "x",
-    label: "X",
-    href: "https://twitter.com/DJUrbanT",
-  },
-  {
-    id: "youtube",
-    label: "YouTube",
-    href: "https://www.youtube.com/@DJ_UrbanT",
+    id: "mixcloud",
+    label: "Mixcloud",
+    href: "https://www.mixcloud.com/urbant/",
   },
   {
     id: "instagram",
@@ -97,39 +88,27 @@ export const socials = [
     href: "https://www.instagram.com/_urbant_/?hl=en",
   },
   {
+    id: "youtube",
+    label: "YouTube",
+    href: "https://www.youtube.com/@DJ_UrbanT",
+  },
+  {
+    id: "x",
+    label: "X",
+    href: "https://twitter.com/DJUrbanT",
+  },
+  {
     id: "twitch",
     label: "Twitch",
     href: "https://www.twitch.tv/djurbant",
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/tigges/",
   },
 ];
 
 export const footer = {
   copyright: "© 2025 by CT",
-  socials: [
-    {
-      id: "x",
-      label: "X",
-      href: "https://twitter.com/DJUrbanT",
-    },
-    {
-      id: "instagram",
-      label: "Instagram",
-      href: "https://www.instagram.com/_urbant_/?hl=en",
-    },
-    {
-      id: "facebook",
-      label: "Facebook",
-      href: "https://www.facebook.com/profile.php?id=61558787754176",
-    },
-    {
-      id: "youtube",
-      label: "YouTube",
-      href: "https://www.youtube.com/@DJ_UrbanT",
-    },
-    {
-      id: "linkedin",
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/tigges/",
-    },
-  ],
 };

@@ -18,10 +18,10 @@ All copy, links, cards, and socials live in `src/content.js`.
 | What to change | Where |
 | --- | --- |
 | Tagline, logo | `site` |
-| DJURBANT hero + Mixcloud CTA | `hero` |
+| DJ URBANT hero + Mixcloud CTA | `hero` |
 | Family / Ventures cards | `cardGroups` |
-| Mid-page brand icons | `socials` |
-| Footer copyright + outline icons | `footer` |
+| Footer brand icons | `socials` |
+| Footer copyright | `footer` |
 | Layout, colors, type | `src/style.css` |
 | Images / video | `public/assets/` |
 
