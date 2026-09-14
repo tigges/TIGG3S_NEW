@@ -1,5 +1,7 @@
-import "./style.css";
-import { site, hero, cardGroups, socials, footer } from "./content.js";
+import "../src/style.css";
+import "./improved.css";
+
+const mixcloudHref = "https://www.mixcloud.com/urbant/";
 
 const arrowIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -17,6 +19,66 @@ const brandIcons = {
   twitch: `<svg viewBox="0 0 512 512" aria-hidden="true"><path d="M391.17,103.47H352.54v109.7h38.63ZM285,103H246.37V212.75H285ZM120.83,0,24.31,91.42V420.58H140.14V512l96.53-91.42h77.25L487.69,256V0ZM449.07,237.75l-77.22,73.12H294.61l-67.6,64v-64H140.14V36.58H449.07Z"></path></svg>`,
 };
 
+const groups = [
+  {
+    id: "family",
+    label: "Family",
+    cards: [
+      {
+        title: "Art Leon",
+        description: "Paintings, drawings, and studio work",
+        href: "https://leontigges.com/",
+        image: "/assets/art.jpg",
+      },
+      {
+        title: "Art Barbara",
+        description: "Paintings and works on paper",
+        href: "https://barbaratigges.com/",
+        image: "/assets/barbara.jpg",
+      },
+      {
+        title: "Architecture",
+        description: "Studio in Switzerland",
+        href: "https://tiggesarchitekt.ch/",
+        image: "/assets/architecture.jpg",
+      },
+    ],
+  },
+  {
+    id: "ventures",
+    label: "Ventures",
+    cards: [
+      {
+        title: "Music",
+        description: "Mixes, dates, and the DJ home",
+        href: "https://djurbant.com/",
+        image: "/assets/music.jpg",
+      },
+      {
+        title: "Set Radar",
+        description: "Timed tracklists for festivals and clubs",
+        href: "https://setradar.ai/",
+        image: "/assets/setradar.jpg",
+      },
+      {
+        title: "GTA VI.AI",
+        description: "Follow the GTA$",
+        href: "https://gtavi.ai/",
+        image: "/assets/gta-card.jpg",
+      },
+    ],
+  },
+];
+
+const socials = [
+  { id: "mixcloud", label: "Mixcloud", href: mixcloudHref },
+  { id: "instagram", label: "Instagram", href: "https://www.instagram.com/_urbant_/?hl=en" },
+  { id: "youtube", label: "YouTube", href: "https://www.youtube.com/@DJ_UrbanT" },
+  { id: "x", label: "X", href: "https://twitter.com/DJUrbanT" },
+  { id: "twitch", label: "Twitch", href: "https://www.twitch.tv/djurbant" },
+  { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/tigges/" },
+];
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -25,13 +87,31 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function renderCard(card) {
+  return `
+    <a class="card" href="${escapeHtml(card.href)}" target="_blank" rel="noopener noreferrer" style="background-image: url('${escapeHtml(card.image)}')">
+      <span class="card-arrow">${arrowIcon}</span>
+      <h2 class="card-title">${escapeHtml(card.title)}</h2>
+      <p class="card-copy">${escapeHtml(card.description)}</p>
+    </a>
+  `;
+}
+
 document.querySelector("#app").innerHTML = `
+  <div class="mockup-banner">
+    <span>Improved hub mockup — not live. Copy, Mixcloud tease, socials in a black footer.</span>
+    <span>
+      <a href="/">Live hub</a>
+      · <a href="/mockups/option-b.html">Option B</a>
+    </span>
+  </div>
+
   <header class="header" id="top">
     <div class="wrap header-inner">
-      <a class="logo" href="${escapeHtml(site.logo.href)}">
-        <img src="${escapeHtml(site.logo.src)}" alt="${escapeHtml(site.logo.alt)}" width="174" height="32" />
+      <a class="logo" href="#top">
+        <img src="/assets/logo.svg" alt="TIGGES" width="174" height="32" />
       </a>
-      <p class="tagline">${escapeHtml(site.tagline)}</p>
+      <p class="tagline">Family and ventures</p>
       <nav class="jump" aria-label="On this page">
         <a href="#family">Family</a>
         <a href="#ventures">Ventures</a>
@@ -39,35 +119,25 @@ document.querySelector("#app").innerHTML = `
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-video" style="background-image: url('${escapeHtml(hero.poster)}')">
-      <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="${escapeHtml(hero.poster)}">
-        <source src="${escapeHtml(hero.video)}" type="video/mp4" />
+  <section class="hero" id="listen">
+    <div class="hero-video" style="background-image: url('/assets/hero-poster.jpg')">
+      <video autoplay muted loop playsinline poster="/assets/hero-poster.jpg">
+        <source src="/assets/hero.mp4" type="video/mp4" />
       </video>
     </div>
-    <h1 class="hero-title">${escapeHtml(hero.prefix)}<b>${escapeHtml(hero.title)}</b></h1>
-    <a class="hero-cta" href="${escapeHtml(hero.cta.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hero.cta.label)}</a>
+    <h1 class="hero-title">DJ<b>URBANT</b></h1>
+    <a class="hero-cta" href="${mixcloudHref}" target="_blank" rel="noopener noreferrer">Join Live on Mixcloud</a>
   </section>
 
   <section class="cards-section">
     <div class="wrap">
-      ${cardGroups
+      ${groups
         .map(
           (group) => `
         <div class="card-group" id="${escapeHtml(group.id)}">
           <p class="section-label">${escapeHtml(group.label)}</p>
           <div class="cards grid-3">
-            ${group.cards
-              .map(
-                (card) => `
-              <a class="card" href="${escapeHtml(card.href)}" target="_blank" rel="noopener noreferrer" style="background-image: url('${escapeHtml(card.image)}')">
-                <span class="card-arrow">${arrowIcon}</span>
-                <h2 class="card-title">${escapeHtml(card.title)}</h2>
-                <p class="card-copy">${escapeHtml(card.description)}</p>
-              </a>
-            `
-              )
-              .join("")}
+            ${group.cards.map(renderCard).join("")}
           </div>
         </div>
       `
@@ -76,9 +146,9 @@ document.querySelector("#app").innerHTML = `
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer" id="follow">
     <div class="wrap footer-inner">
-      <p class="copyright">${escapeHtml(footer.copyright)}</p>
+      <p class="copyright">© 2025 by CT</p>
       <div class="socials">
         ${socials
           .map(
@@ -93,13 +163,3 @@ document.querySelector("#app").innerHTML = `
     </div>
   </footer>
 `;
-
-const heroVideo = document.querySelector(".hero-video video");
-if (heroVideo) {
-  heroVideo.muted = true;
-  heroVideo.defaultMuted = true;
-  heroVideo.playsInline = true;
-  const tryPlay = () => heroVideo.play().catch(() => {});
-  heroVideo.addEventListener("canplay", tryPlay, { once: true });
-  tryPlay();
-}
