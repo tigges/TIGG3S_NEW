@@ -43,8 +43,8 @@ document.querySelector("#app").innerHTML = `
   </header>
 
   <section class="hero">
-    <div class="hero-video">
-      <video autoplay muted playsinline loop>
+    <div class="hero-video" style="background-image: url('${escapeHtml(hero.poster)}')">
+      <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="${escapeHtml(hero.poster)}">
         <source src="${escapeHtml(hero.video)}" type="video/mp4" />
       </video>
     </div>
@@ -114,3 +114,13 @@ document.querySelector("#app").innerHTML = `
     </div>
   </footer>
 `;
+
+const heroVideo = document.querySelector(".hero-video video");
+if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.playsInline = true;
+  const tryPlay = () => heroVideo.play().catch(() => {});
+  heroVideo.addEventListener("canplay", tryPlay, { once: true });
+  tryPlay();
+}

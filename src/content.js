@@ -16,6 +16,7 @@ export const site = {
 
 export const hero = {
   video: asset("assets/hero.mp4"),
+  poster: asset("assets/hero-poster.jpg"),
   prefix: "DJ",
   title: "URBANT",
   href: "https://www.youtube.com/@DJ_UrbanT",
