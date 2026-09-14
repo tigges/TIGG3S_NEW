@@ -44,7 +44,7 @@ export const cardGroups = [
       },
       {
         title: "Architecture",
-        description: "Studio in Switzerland",
+        description: "Studio in Spain",
         href: "https://tiggesarchitekt.ch/",
         image: asset("assets/architecture.jpg"),
       },
