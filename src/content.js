@@ -16,37 +16,59 @@ export const hero = {
   video: "/assets/hero.mp4",
   prefix: "DJ",
   title: "URBANT",
-  href: "https://www.mixcloud.com/urbant/",
+  href: "https://www.youtube.com/@DJ_UrbanT",
   cta: {
-    label: "Join Live on MixCloud",
-    href: "https://www.mixcloud.com/urbant/",
+    label: "Watch on YouTube",
+    href: "https://www.youtube.com/@DJ_UrbanT",
   },
 };
 
-export const cards = [
+export const cardGroups = [
   {
-    title: "Music",
-    description: "Dj UrbanT Website",
-    href: "https://djurbant.com/",
-    image: "/assets/music.jpg",
+    label: "Family",
+    cards: [
+      {
+        title: "Art Leon",
+        description: "Leon Tigges art portfolio",
+        href: "https://leontigges.com/",
+        image: "/assets/art.jpg",
+      },
+      {
+        title: "Art Barbara",
+        description: "Paintings and works on paper",
+        href: "https://barbaratigges.com/",
+        image: "/assets/barbara.jpg",
+      },
+      {
+        title: "Architecture",
+        description: "Tigges Architekt Studio Website",
+        href: "https://tiggesarchitekt.ch/",
+        image: "/assets/architecture.jpg",
+      },
+    ],
   },
   {
-    title: "Art",
-    description: "Check out Leon Tigges’art portfolio",
-    href: "https://leontigges.com/",
-    image: "/assets/art.jpg",
-  },
-  {
-    title: "Architecture",
-    description: "Tigges Architekt Studio Website",
-    href: "https://tiggesarchitekt.ch/",
-    image: "/assets/architecture.jpg",
-  },
-  {
-    title: "CXP Today",
-    description: "Catch up the latest trends on customer experience",
-    href: "https://cxone.co.uk/",
-    image: "/assets/cxp.jpg",
+    label: "Ventures",
+    cards: [
+      {
+        title: "Music",
+        description: "Dj UrbanT Website",
+        href: "https://djurbant.com/",
+        image: "/assets/music.jpg",
+      },
+      {
+        title: "Set Radar",
+        description: "Timed tracklists for festivals and clubs",
+        href: "https://setradar.ai/",
+        image: "/assets/setradar.jpg",
+      },
+      {
+        title: "GTA VI.AI",
+        description: "Follow the GTA$",
+        href: "https://gtavi.ai/",
+        image: "/assets/gta.jpg",
+      },
+    ],
   },
 ];
 
@@ -62,9 +84,9 @@ export const socials = [
     href: "https://twitter.com/DJUrbanT",
   },
   {
-    id: "mixcloud",
-    label: "Mixcloud",
-    href: "https://www.mixcloud.com/urbant/",
+    id: "youtube",
+    label: "YouTube",
+    href: "https://www.youtube.com/@DJ_UrbanT",
   },
   {
     id: "instagram",
@@ -99,7 +121,7 @@ export const footer = {
     {
       id: "youtube",
       label: "YouTube",
-      href: "https://www.youtube.com/@urbanttt",
+      href: "https://www.youtube.com/@DJ_UrbanT",
     },
     {
       id: "linkedin",

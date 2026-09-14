@@ -1,0 +1,66 @@
+.mockup-banner {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 10px var(--page-pad);
+  background: #ff7919;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.mockup-banner a {
+  text-decoration: underline;
+}
+
+.cards.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.cards .card {
+  min-height: 280px;
+}
+
+.card-group {
+  margin-bottom: 36px;
+}
+
+.card-group:last-child {
+  margin-bottom: 0;
+}
+
+.section-label {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.social-youtube {
+  background: #ff0000;
+}
+
+@media (max-width: 1024px) {
+  .cards.grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .cards.grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .cards .card {
+    min-height: 150px;
+  }
+}

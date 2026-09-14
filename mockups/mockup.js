@@ -1,5 +1,7 @@
-import "./style.css";
-import { site, hero, cardGroups, socials, footer } from "./content.js";
+import "../src/style.css";
+import "./mockup.css";
+
+const youtubeHref = "https://www.youtube.com/@DJ_UrbanT";
 
 const arrowIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -24,6 +26,15 @@ const outlineIcons = {
   linkedin: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><g clip-path="url(#clip-li)"><path d="M5.33325 7.99967C5.33325 7.29243 5.6142 6.61415 6.1143 6.11406C6.6144 5.61396 7.29267 5.33301 7.99992 5.33301H23.9999C24.7072 5.33301 25.3854 5.61396 25.8855 6.11406C26.3856 6.61415 26.6666 7.29243 26.6666 7.99967V23.9997C26.6666 24.7069 26.3856 25.3852 25.8855 25.8853C25.3854 26.3854 24.7072 26.6663 23.9999 26.6663H7.99992C7.29267 26.6663 6.6144 26.3854 6.1143 25.8853C5.6142 25.3852 5.33325 24.7069 5.33325 23.9997V7.99967Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10.6667 14.667V21.3337" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10.6667 10.667V10.6803" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 21.3337V14.667" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.3333 21.3337V17.3337C21.3333 16.6264 21.0524 15.9481 20.5523 15.448C20.0522 14.9479 19.3739 14.667 18.6667 14.667C17.9594 14.667 17.2811 14.9479 16.781 15.448C16.281 15.9481 16 16.6264 16 17.3337" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></g><defs><clipPath id="clip-li"><rect width="32" height="32" fill="white"></rect></clipPath></defs></svg>`,
 };
 
+const cards = {
+  music: { title: "Music", description: "Dj UrbanT Website", href: "https://djurbant.com/", image: "/assets/music.jpg" },
+  art: { title: "Art Leon", description: "Leon Tigges art portfolio", href: "https://leontigges.com/", image: "/assets/art.jpg" },
+  architecture: { title: "Architecture", description: "Tigges Architekt Studio Website", href: "https://tiggesarchitekt.ch/", image: "/assets/architecture.jpg" },
+  barbara: { title: "Art Barbara", description: "Paintings and works on paper", href: "https://barbaratigges.com/", image: "/assets/barbara.jpg" },
+  setradar: { title: "Set Radar", description: "Timed tracklists for festivals and clubs", href: "https://setradar.ai/", image: "/assets/setradar.jpg" },
+  gta: { title: "GTA VI.AI", description: "Follow the GTA$", href: "https://gtavi.ai/", image: "/assets/gta.jpg" },
+};
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -32,84 +43,102 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function renderCard(card) {
+  return `
+    <a class="card" href="${escapeHtml(card.href)}" target="_blank" rel="noopener noreferrer" style="background-image: url('${escapeHtml(card.image)}')">
+      <span class="card-arrow">${arrowIcon}</span>
+      <h2 class="card-title">${escapeHtml(card.title)}</h2>
+      <p class="card-copy">${escapeHtml(card.description)}</p>
+    </a>
+  `;
+}
+
+function renderGroups(variant) {
+  if (variant === "grouped") {
+    return `
+      <div class="card-group">
+        <p class="section-label">Family</p>
+        <div class="cards grid-3">
+          ${["art", "barbara", "architecture"].map((id) => renderCard(cards[id])).join("")}
+        </div>
+      </div>
+      <div class="card-group">
+        <p class="section-label">Ventures</p>
+        <div class="cards grid-3">
+          ${["music", "setradar", "gta"].map((id) => renderCard(cards[id])).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="cards grid-3">
+      ${["music", "art", "architecture", "barbara", "setradar", "gta"].map((id) => renderCard(cards[id])).join("")}
+    </div>
+  `;
+}
+
+const variant = document.body.dataset.variant || "grid";
+const label = variant === "grouped" ? "Option B · Family / Ventures" : "Option A · 3×2 grid (recommended)";
+
 document.querySelector("#app").innerHTML = `
+  <div class="mockup-banner">
+    <span>TIGG3S V2 mockup — ${label}. Live homepage is unchanged.</span>
+    <span>
+      <a href="/">Original hub</a>
+      · <a href="/mockups/option-a.html">Option A</a>
+      · <a href="/mockups/option-b.html">Option B</a>
+    </span>
+  </div>
+
   <header class="header">
     <div class="wrap header-inner">
-      <a class="logo" href="${escapeHtml(site.logo.href)}">
-        <img src="${escapeHtml(site.logo.src)}" alt="${escapeHtml(site.logo.alt)}" width="174" height="32" />
+      <a class="logo" href="/">
+        <img src="/assets/logo.svg" alt="TIGGES" width="174" height="32" />
       </a>
-      <p class="tagline">${escapeHtml(site.tagline)}</p>
+      <p class="tagline">Tigges family links &amp; resources</p>
     </div>
   </header>
 
   <section class="hero">
     <div class="hero-video">
       <video autoplay muted playsinline loop>
-        <source src="${escapeHtml(hero.video)}" type="video/mp4" />
+        <source src="/assets/hero.mp4" type="video/mp4" />
       </video>
     </div>
     <h1 class="hero-title">
-      <a href="${escapeHtml(hero.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hero.prefix)}<b>${escapeHtml(hero.title)}</b></a>
+      <a href="${youtubeHref}" target="_blank" rel="noopener noreferrer">DJ<b>URBANT</b></a>
     </h1>
-    <a class="hero-cta" href="${escapeHtml(hero.cta.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hero.cta.label)}</a>
+    <a class="hero-cta" href="${youtubeHref}" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
   </section>
 
   <section class="cards-section">
     <div class="wrap">
-      ${cardGroups
-        .map(
-          (group) => `
-        <div class="card-group">
-          <p class="section-label">${escapeHtml(group.label)}</p>
-          <div class="cards grid-3">
-            ${group.cards
-              .map(
-                (card) => `
-              <a class="card" href="${escapeHtml(card.href)}" target="_blank" rel="noopener noreferrer" style="background-image: url('${escapeHtml(card.image)}')">
-                <span class="card-arrow">${arrowIcon}</span>
-                <h2 class="card-title">${escapeHtml(card.title)}</h2>
-                <p class="card-copy">${escapeHtml(card.description)}</p>
-              </a>
-            `
-              )
-              .join("")}
-          </div>
-        </div>
-      `
-        )
-        .join("")}
+      ${renderGroups(variant)}
     </div>
   </section>
 
   <section class="socials-section">
     <div class="wrap">
       <div class="socials">
-        ${socials
-          .map(
-            (item) => `
-          <a class="social social-${escapeHtml(item.id)}" href="${escapeHtml(item.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(item.label)}">
-            ${brandIcons[item.id] ?? ""}
-          </a>
-        `
-          )
-          .join("")}
+        <a class="social social-linkedin" href="https://www.linkedin.com/in/tigges/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">${brandIcons.linkedin}</a>
+        <a class="social social-x" href="https://twitter.com/DJUrbanT" target="_blank" rel="noopener noreferrer" aria-label="X">${brandIcons.x}</a>
+        <a class="social social-youtube" href="${youtubeHref}" target="_blank" rel="noopener noreferrer" aria-label="YouTube">${brandIcons.youtube}</a>
+        <a class="social social-instagram" href="https://www.instagram.com/_urbant_/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${brandIcons.instagram}</a>
+        <a class="social social-twitch" href="https://www.twitch.tv/djurbant" target="_blank" rel="noopener noreferrer" aria-label="Twitch">${brandIcons.twitch}</a>
       </div>
     </div>
   </section>
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <p class="copyright">${escapeHtml(footer.copyright)}</p>
+      <p class="copyright">© 2025 by CT</p>
       <div class="footer-socials">
-        ${footer.socials
-          .map(
-            (item) => `
-          <a class="footer-social" href="${escapeHtml(item.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(item.label)}">
-            ${outlineIcons[item.id] ?? ""}
-          </a>
-        `
-          )
-          .join("")}
+        <a class="footer-social" href="https://twitter.com/DJUrbanT" target="_blank" rel="noopener noreferrer" aria-label="X">${outlineIcons.x}</a>
+        <a class="footer-social" href="https://www.instagram.com/_urbant_/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${outlineIcons.instagram}</a>
+        <a class="footer-social" href="https://www.facebook.com/profile.php?id=61558787754176" target="_blank" rel="noopener noreferrer" aria-label="Facebook">${outlineIcons.facebook}</a>
+        <a class="footer-social" href="${youtubeHref}" target="_blank" rel="noopener noreferrer" aria-label="YouTube">${outlineIcons.youtube}</a>
+        <a class="footer-social" href="https://www.linkedin.com/in/tigges/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">${outlineIcons.linkedin}</a>
       </div>
     </div>
   </footer>
