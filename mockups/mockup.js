@@ -88,6 +88,7 @@ document.querySelector("#app").innerHTML = `
       <a href="/">Original hub</a>
       · <a href="/mockups/option-a.html">Option A</a>
       · <a href="/mockups/option-b.html">Option B</a>
+      · <a href="/mockups/improved.html">Improved</a>
     </span>
   </div>
 
