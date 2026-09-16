@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { jsonLd, renderApp } from "./src/render.js";
 
 const root = dirname(fileURLToPath(import.meta.url));
 
@@ -11,6 +12,22 @@ export default defineConfig({
     port: 5173,
   },
   plugins: [
+    {
+      name: "prerender-app",
+      transformIndexHtml: {
+        order: "pre",
+        handler(html) {
+          const markup = renderApp();
+          const ld = JSON.stringify(jsonLd()).replaceAll("<", "\\u003c");
+          return html
+            .replace('<div id="app"></div>', `<div id="app">${markup}</div>`)
+            .replace(
+              '<script type="application/ld+json" id="jsonld"></script>',
+              `<script type="application/ld+json" id="jsonld">${ld}</script>`
+            );
+        },
+      },
+    },
     {
       name: "strip-pages-redirect",
       transformIndexHtml: {

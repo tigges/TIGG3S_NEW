@@ -2,10 +2,12 @@
  * Site content — edit this file to change copy, links, and cards.
  */
 
-const asset = (path) => `${import.meta.env.BASE_URL}${String(path).replace(/^\//, "")}`;
+const asset = (path) => `./${String(path).replace(/^\//, "")}`;
+
+export const origin = "https://tigg3s.com";
 
 export const site = {
-  title: "Tigges",
+  title: "TIGGES",
   tagline: "Family and ventures",
   logo: {
     src: asset("assets/logo.svg"),
@@ -13,6 +15,51 @@ export const site = {
     href: "#top",
   },
 };
+
+export const seo = {
+  title: "TIGGES — Family and ventures hub",
+  description:
+    "TIGGES is the Tigges family and ventures hub: art, architecture, music with DJ URBANT, Set Radar, and GTA VI.AI.",
+  canonical: `${origin}/`,
+  ogImage: `${origin}/assets/og.jpg`,
+};
+
+export const about = {
+  heading: "The Tigges hub",
+  paragraphs: [
+    "TIGGES is the family and ventures hub for the Tigges family. It gathers the studios, sites, and projects in one place so people can find the right door from this homepage.",
+    "Family includes Art Leon (paintings, drawings, and studio work), Art Barbara (paintings and works on paper), and architecture with a studio in Spain.",
+    "Ventures includes DJ URBANT, Set Radar timed tracklists for festivals and clubs, and GTA VI.AI. Those three sit beside the Family studios on this homepage.",
+    "This page is a directory, not a shop. Each Family and Ventures card opens the studio or project site. DJ URBANT live sets are on Mixcloud until the YouTube channel has more videos. Use the Family and Ventures links at the top, or read the short questions below. Social profiles are in the footer.",
+  ],
+};
+
+export const faqs = [
+  {
+    question: "What is TIGGES?",
+    answer:
+      "TIGGES is the family and ventures site for the Tigges family. It is a hub, not a store: each card opens the studio or project site.",
+  },
+  {
+    question: "Who is DJ URBANT?",
+    answer:
+      "DJ URBANT is the music project on this hub. Mixes and dates live on djurbant.com. Join live on Mixcloud.",
+  },
+  {
+    question: "Where is the architecture studio?",
+    answer:
+      "The architecture studio is in Spain. The project site is tiggesarchitekt.ch, listed under Family on this hub.",
+  },
+  {
+    question: "What is Set Radar?",
+    answer:
+      "Set Radar publishes timed tracklists for festivals and clubs at setradar.ai.",
+  },
+  {
+    question: "What is GTA VI.AI?",
+    answer: "GTA VI.AI is a Tigges venture on this hub. Follow the GTA$ at gtavi.ai.",
+  },
+];
 
 export const hero = {
   video: asset("assets/hero.mp4"),
