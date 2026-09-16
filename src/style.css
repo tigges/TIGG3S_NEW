@@ -301,9 +301,25 @@ img {
   padding: 10px 0 70px;
 }
 
+body[data-page="about"] .about-section {
+  padding: 36px 0 80px;
+}
+
 .about-inner {
   max-width: 720px;
   margin: 0 auto;
+}
+
+.about-title {
+  margin: 0 0 22px;
+  font-family: var(--font);
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.jump a[aria-current="page"] {
+  color: var(--white);
 }
 
 .about-copy {

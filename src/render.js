@@ -1,4 +1,4 @@
-import { about, cardGroups, faqs, footer, hero, origin, seo, site, socials } from "./content.js";
+import { about, aboutSeo, cardGroups, faqs, footer, hero, origin, seo, site, socials } from "./content.js";
 
 const arrowIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -24,7 +24,7 @@ export function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-export function jsonLd() {
+export function jsonLdHome() {
   const sameAs = [
     ...socials.map((item) => item.href),
     ...cardGroups.flatMap((group) => group.cards.map((card) => card.href)),
@@ -58,9 +58,27 @@ export function jsonLd() {
         url: "https://djurbant.com/",
         sameAs: socials.map((item) => item.href),
       },
+    ],
+  };
+}
+
+export function jsonLdAbout() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${aboutSeo.canonical}#page`,
+        url: aboutSeo.canonical,
+        name: about.heading,
+        description: aboutSeo.description,
+        isPartOf: { "@id": `${origin}/#website` },
+        about: { "@id": `${origin}/#organization` },
+      },
       {
         "@type": "FAQPage",
-        "@id": `${origin}/#faq`,
+        "@id": `${aboutSeo.canonical}#faq`,
+        url: aboutSeo.canonical,
         mainEntity: faqs.map((item) => ({
           "@type": "Question",
           name: item.question,
@@ -74,21 +92,57 @@ export function jsonLd() {
   };
 }
 
-export function renderApp() {
+function renderHeader(page) {
+  const home = page === "home";
+  const logoHref = home ? "#top" : "./";
+  const heading = home
+    ? `<h1 class="tagline">${escapeHtml(site.tagline)}</h1>`
+    : `<p class="tagline">${escapeHtml(site.tagline)}</p>`;
+  const familyHref = home ? "#family" : "./#family";
+  const venturesHref = home ? "#ventures" : "./#ventures";
+  const aboutCurrent = home ? "" : ` aria-current="page"`;
+
   return `
   <header class="header" id="top">
     <div class="wrap header-inner">
-      <a class="logo" href="${escapeHtml(site.logo.href)}">
+      <a class="logo" href="${escapeHtml(logoHref)}">
         <img src="${escapeHtml(site.logo.src)}" alt="${escapeHtml(site.logo.alt)}" width="174" height="32" />
       </a>
-      <h1 class="tagline">${escapeHtml(site.tagline)}</h1>
-      <nav class="jump" aria-label="On this page">
-        <a href="#family">Family</a>
-        <a href="#ventures">Ventures</a>
-        <a href="#about">About</a>
+      ${heading}
+      <nav class="jump" aria-label="Site">
+        <a href="${escapeHtml(familyHref)}">Family</a>
+        <a href="${escapeHtml(venturesHref)}">Ventures</a>
+        <a href="./about.html"${aboutCurrent}>About</a>
       </nav>
     </div>
   </header>
+`;
+}
+
+function renderFooter() {
+  return `
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p class="copyright">${escapeHtml(footer.copyright)}</p>
+      <div class="socials">
+        ${socials
+          .map(
+            (item) => `
+          <a class="social social-${escapeHtml(item.id)}" href="${escapeHtml(item.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(item.label)}">
+            ${brandIcons[item.id] ?? ""}
+          </a>
+        `
+          )
+          .join("")}
+      </div>
+    </div>
+  </footer>
+`;
+}
+
+export function renderHome() {
+  return `
+  ${renderHeader("home")}
 
   <section class="hero">
     <div class="hero-video">
@@ -128,9 +182,17 @@ export function renderApp() {
     </div>
   </section>
 
+  ${renderFooter()}
+`;
+}
+
+export function renderAbout() {
+  return `
+  ${renderHeader("about")}
+
   <section class="about-section" id="about">
     <div class="wrap about-inner">
-      <h2 class="section-label">${escapeHtml(about.heading)}</h2>
+      <h1 class="about-title">${escapeHtml(about.heading)}</h1>
       ${about.paragraphs.map((text) => `<p class="about-copy">${escapeHtml(text)}</p>`).join("")}
       <h2 class="faq-heading">Questions</h2>
       <dl class="faq">
@@ -148,21 +210,6 @@ export function renderApp() {
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <p class="copyright">${escapeHtml(footer.copyright)}</p>
-      <div class="socials">
-        ${socials
-          .map(
-            (item) => `
-          <a class="social social-${escapeHtml(item.id)}" href="${escapeHtml(item.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(item.label)}">
-            ${brandIcons[item.id] ?? ""}
-          </a>
-        `
-          )
-          .join("")}
-      </div>
-    </div>
-  </footer>
+  ${renderFooter()}
 `;
 }

@@ -24,13 +24,20 @@ export const seo = {
   ogImage: `${origin}/assets/og.jpg`,
 };
 
+export const aboutSeo = {
+  title: "About TIGGES — Family and ventures",
+  description:
+    "About the TIGGES hub: Tigges family studios for art and architecture, plus ventures including DJ URBANT, Set Radar, and GTA VI.AI.",
+  canonical: `${origin}/about.html`,
+};
+
 export const about = {
-  heading: "The Tigges hub",
+  heading: "About TIGGES",
   paragraphs: [
-    "TIGGES is the family and ventures hub for the Tigges family. It gathers the studios, sites, and projects in one place so people can find the right door from this homepage.",
+    "TIGGES is the family and ventures hub for the Tigges family. It gathers the studios, sites, and projects in one place so people can find the right door.",
     "Family includes Art Leon (paintings, drawings, and studio work), Art Barbara (paintings and works on paper), and architecture with a studio in Spain.",
-    "Ventures includes DJ URBANT, Set Radar timed tracklists for festivals and clubs, and GTA VI.AI. Those three sit beside the Family studios on this homepage.",
-    "This page is a directory, not a shop. Each Family and Ventures card opens the studio or project site. DJ URBANT live sets are on Mixcloud until the YouTube channel has more videos. Use the Family and Ventures links at the top, or read the short questions below. Social profiles are in the footer.",
+    "Ventures includes DJ URBANT, Set Radar timed tracklists for festivals and clubs, and GTA VI.AI. Those three sit beside the Family studios on the home page.",
+    "The home page is a directory, not a shop. Each Family and Ventures card opens the studio or project site. DJ URBANT live sets are on Mixcloud until the YouTube channel has more videos. Social profiles are in the footer.",
   ],
 };
 

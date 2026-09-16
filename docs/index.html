@@ -36,25 +36,27 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script type="application/ld+json" id="jsonld">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://tigg3s.com/#organization","name":"TIGGES","url":"https://tigg3s.com/","logo":"https://tigg3s.com/assets/logo.svg","description":"TIGGES is the Tigges family and ventures hub: art, architecture, music with DJ URBANT, Set Radar, and GTA VI.AI.","sameAs":["https://www.mixcloud.com/urbant/","https://www.instagram.com/_urbant_/?hl=en","https://www.youtube.com/@DJ_UrbanT","https://twitter.com/DJUrbanT","https://www.twitch.tv/djurbant","https://www.linkedin.com/in/tigges/","https://leontigges.com/","https://barbaratigges.com/","https://tiggesarchitekt.ch/","https://djurbant.com/","https://setradar.ai/","https://gtavi.ai/"]},{"@type":"WebSite","@id":"https://tigg3s.com/#website","url":"https://tigg3s.com/","name":"TIGGES","description":"TIGGES is the Tigges family and ventures hub: art, architecture, music with DJ URBANT, Set Radar, and GTA VI.AI.","inLanguage":"en-GB","publisher":{"@id":"https://tigg3s.com/#organization"}},{"@type":"Person","@id":"https://tigg3s.com/#djurbant","name":"DJ URBANT","url":"https://djurbant.com/","sameAs":["https://www.mixcloud.com/urbant/","https://www.instagram.com/_urbant_/?hl=en","https://www.youtube.com/@DJ_UrbanT","https://twitter.com/DJUrbanT","https://www.twitch.tv/djurbant","https://www.linkedin.com/in/tigges/"]},{"@type":"FAQPage","@id":"https://tigg3s.com/#faq","mainEntity":[{"@type":"Question","name":"What is TIGGES?","acceptedAnswer":{"@type":"Answer","text":"TIGGES is the family and ventures site for the Tigges family. It is a hub, not a store: each card opens the studio or project site."}},{"@type":"Question","name":"Who is DJ URBANT?","acceptedAnswer":{"@type":"Answer","text":"DJ URBANT is the music project on this hub. Mixes and dates live on djurbant.com. Join live on Mixcloud."}},{"@type":"Question","name":"Where is the architecture studio?","acceptedAnswer":{"@type":"Answer","text":"The architecture studio is in Spain. The project site is tiggesarchitekt.ch, listed under Family on this hub."}},{"@type":"Question","name":"What is Set Radar?","acceptedAnswer":{"@type":"Answer","text":"Set Radar publishes timed tracklists for festivals and clubs at setradar.ai."}},{"@type":"Question","name":"What is GTA VI.AI?","acceptedAnswer":{"@type":"Answer","text":"GTA VI.AI is a Tigges venture on this hub. Follow the GTA$ at gtavi.ai."}}]}]}</script>
-      <script type="module" crossorigin src="./app.js"></script>
+    <script type="application/ld+json" id="jsonld">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://tigg3s.com/#organization","name":"TIGGES","url":"https://tigg3s.com/","logo":"https://tigg3s.com/assets/logo.svg","description":"TIGGES is the Tigges family and ventures hub: art, architecture, music with DJ URBANT, Set Radar, and GTA VI.AI.","sameAs":["https://www.mixcloud.com/urbant/","https://www.instagram.com/_urbant_/?hl=en","https://www.youtube.com/@DJ_UrbanT","https://twitter.com/DJUrbanT","https://www.twitch.tv/djurbant","https://www.linkedin.com/in/tigges/","https://leontigges.com/","https://barbaratigges.com/","https://tiggesarchitekt.ch/","https://djurbant.com/","https://setradar.ai/","https://gtavi.ai/"]},{"@type":"WebSite","@id":"https://tigg3s.com/#website","url":"https://tigg3s.com/","name":"TIGGES","description":"TIGGES is the Tigges family and ventures hub: art, architecture, music with DJ URBANT, Set Radar, and GTA VI.AI.","inLanguage":"en-GB","publisher":{"@id":"https://tigg3s.com/#organization"}},{"@type":"Person","@id":"https://tigg3s.com/#djurbant","name":"DJ URBANT","url":"https://djurbant.com/","sameAs":["https://www.mixcloud.com/urbant/","https://www.instagram.com/_urbant_/?hl=en","https://www.youtube.com/@DJ_UrbanT","https://twitter.com/DJUrbanT","https://www.twitch.tv/djurbant","https://www.linkedin.com/in/tigges/"]}]}</script>
+      <script type="module" crossorigin src="./chunks/main.js"></script>
       <link rel="stylesheet" crossorigin href="./app.css">
     </head>
-  <body>
+  <body data-page="home">
     <div id="app">
+  
   <header class="header" id="top">
     <div class="wrap header-inner">
       <a class="logo" href="#top">
         <img src="./assets/logo.svg" alt="TIGGES" width="174" height="32" />
       </a>
       <h1 class="tagline">Family and ventures</h1>
-      <nav class="jump" aria-label="On this page">
+      <nav class="jump" aria-label="Site">
         <a href="#family">Family</a>
         <a href="#ventures">Ventures</a>
-        <a href="#about">About</a>
+        <a href="./about.html">About</a>
       </nav>
     </div>
   </header>
+
 
   <section class="hero">
     <div class="hero-video">
@@ -153,42 +155,7 @@
     </div>
   </section>
 
-  <section class="about-section" id="about">
-    <div class="wrap about-inner">
-      <h2 class="section-label">The Tigges hub</h2>
-      <p class="about-copy">TIGGES is the family and ventures hub for the Tigges family. It gathers the studios, sites, and projects in one place so people can find the right door from this homepage.</p><p class="about-copy">Family includes Art Leon (paintings, drawings, and studio work), Art Barbara (paintings and works on paper), and architecture with a studio in Spain.</p><p class="about-copy">Ventures includes DJ URBANT, Set Radar timed tracklists for festivals and clubs, and GTA VI.AI. Those three sit beside the Family studios on this homepage.</p><p class="about-copy">This page is a directory, not a shop. Each Family and Ventures card opens the studio or project site. DJ URBANT live sets are on Mixcloud until the YouTube channel has more videos. Use the Family and Ventures links at the top, or read the short questions below. Social profiles are in the footer.</p>
-      <h2 class="faq-heading">Questions</h2>
-      <dl class="faq">
-        
-          <div class="faq-item">
-            <dt>What is TIGGES?</dt>
-            <dd>TIGGES is the family and ventures site for the Tigges family. It is a hub, not a store: each card opens the studio or project site.</dd>
-          </div>
-        
-          <div class="faq-item">
-            <dt>Who is DJ URBANT?</dt>
-            <dd>DJ URBANT is the music project on this hub. Mixes and dates live on djurbant.com. Join live on Mixcloud.</dd>
-          </div>
-        
-          <div class="faq-item">
-            <dt>Where is the architecture studio?</dt>
-            <dd>The architecture studio is in Spain. The project site is tiggesarchitekt.ch, listed under Family on this hub.</dd>
-          </div>
-        
-          <div class="faq-item">
-            <dt>What is Set Radar?</dt>
-            <dd>Set Radar publishes timed tracklists for festivals and clubs at setradar.ai.</dd>
-          </div>
-        
-          <div class="faq-item">
-            <dt>What is GTA VI.AI?</dt>
-            <dd>GTA VI.AI is a Tigges venture on this hub. Follow the GTA$ at gtavi.ai.</dd>
-          </div>
-        
-      </dl>
-    </div>
-  </section>
-
+  
   <footer class="footer">
     <div class="wrap footer-inner">
       <p class="copyright">© 2025 by CT</p>
@@ -221,6 +188,7 @@
       </div>
     </div>
   </footer>
+
 </div>
   </body>
 </html>
