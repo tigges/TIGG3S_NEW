@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { jsonLd, renderApp } from "./src/render.js";
+import { jsonLdAbout, jsonLdHome, renderAbout, renderHome } from "./src/render.js";
 
 const root = dirname(fileURLToPath(import.meta.url));
 
@@ -16,9 +16,10 @@ export default defineConfig({
       name: "prerender-app",
       transformIndexHtml: {
         order: "pre",
-        handler(html) {
-          const markup = renderApp();
-          const ld = JSON.stringify(jsonLd()).replaceAll("<", "\\u003c");
+        handler(html, ctx) {
+          const isAbout = String(ctx.filename || ctx.path || "").endsWith("about.html");
+          const markup = isAbout ? renderAbout() : renderHome();
+          const ld = JSON.stringify(isAbout ? jsonLdAbout() : jsonLdHome()).replaceAll("<", "\\u003c");
           return html
             .replace('<div id="app"></div>', `<div id="app">${markup}</div>`)
             .replace(
@@ -48,9 +49,12 @@ export default defineConfig({
     outDir: "docs",
     emptyOutDir: true,
     rollupOptions: {
-      input: resolve(root, "index.html"),
+      input: {
+        main: resolve(root, "index.html"),
+        about: resolve(root, "about.html"),
+      },
       output: {
-        entryFileNames: "app.js",
+        entryFileNames: "[name].js",
         chunkFileNames: "chunks/[name].js",
         assetFileNames: (info) =>
           info.name?.endsWith(".css") ? "app.css" : "assets/[name][extname]",

@@ -1,7 +1,8 @@
 import "./style.css";
-import { renderApp } from "./render.js";
+import { renderAbout, renderHome } from "./render.js";
 
-document.querySelector("#app").innerHTML = renderApp();
+const page = document.body.dataset.page || "home";
+document.querySelector("#app").innerHTML = page === "about" ? renderAbout() : renderHome();
 
 const heroVideo = document.querySelector(".hero-video video");
 if (heroVideo) {
